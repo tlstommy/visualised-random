@@ -21,14 +21,14 @@ def generateArray(w,h):
 
 def generateRandom():
     pixelArray = np.zeros(shape=(1,3),dtype=np.uint8)
-    pixelArray[0][0] = (np.random.randint(0,256))# R
-    pixelArray[0][1] = (np.random.randint(0,256)# G
-    pixelArray[0][2] = (np.random.randint(0,256)# B
+    pixelArray[0][0] = randomPixel(0,256,0)# R
+    pixelArray[0][1] = randomPixel(0,256,0)# G
+    pixelArray[0][2] = randomPixel(0,256,0)# B
     return pixelArray
 
 
-def randomPixel(min,max):
-
+def randomPixel(min,max,mode):
+    return np.random.randint(min,max)
 
 def generateImage(array):
     img = Image.fromarray(array)
@@ -46,6 +46,6 @@ def main():
         print(f"SEED: {int(seed)}")
         generateArray(int(height),int(width))
         #input("---------------------------\nPress enter to regenerate. ")
-        time.sleep(0.3)
+        time.sleep(0.5)
 
 main()
